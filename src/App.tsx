@@ -46,6 +46,7 @@ color:${(props) => props.theme.textColor}
 }
 a{
 text-decoration: none;
+color:inherit;
 }
 menu, ol, ul {
   list-style: none;
