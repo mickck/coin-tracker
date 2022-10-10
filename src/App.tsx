@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-
 import Router from "./Router";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 // when if createGkibakStyle renders , this component put styles in global scope
 const GlobalStyle = createGlobalStyle`
@@ -69,6 +69,7 @@ function App() {
     <>
       <GlobalStyle />
       <Router />
+      <ReactQueryDevtools initialIsOpen={true} />
     </>
   );
 }

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import { fetchCoins } from "./api";
+import { Helmet } from "react-helmet";
 
 const Container = styled.div`
   padding: 0px 20px;
@@ -59,17 +59,6 @@ interface ICoin {
 }
 
 function Coins() {
-  /*   const [coins, setCoins] = useState<CoinInterface[]>([]);
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    (async () => {
-      const response = await fetch(`https://api.coinpaprika.com/v1/coins`);
-      const json = await response.json();
-      setCoins(json.slice(0, 20));
-      setLoading(false);
-    })();
-  }, []); */
-
   const { isLoading, data } = useQuery<ICoin[]>(["allCoins"], fetchCoins, {
     select: (data) => data.slice(0, 30),
   });
@@ -79,6 +68,9 @@ data is json data from fetchCoins
 */
   return (
     <Container>
+      <Helmet>
+        <title>Coin</title>
+      </Helmet>
       <Header>
         <Title>Coin</Title>
       </Header>
